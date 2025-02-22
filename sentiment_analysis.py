@@ -12,7 +12,7 @@ def fetch_sentiment_data(client, company_tickers, days=5):
     sentiment_data = []
 
     # Define date range
-    end_date = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')  # Yesterday
+    end_date = (datetime.today() - timedelta(days=2)).strftime('%Y-%m-%d')  # Yesterday
     start_date = (datetime.today() - timedelta(days=days)).strftime('%Y-%m-%d')  # Past 'days' days
 
     for ticker in company_tickers:
