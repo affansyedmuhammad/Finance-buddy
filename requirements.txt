@@ -1,0 +1,6 @@
+pandas==2.2.3
+polygon-api-client==1.14.4
+protobuf==5.29.3
+pymongo==4.11.1
+yfinance==0.2.54
+python-dotenv==1.0.1
