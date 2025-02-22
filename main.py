@@ -29,7 +29,7 @@ predicted_closing_rate = {}  # Dictionary to store predicted closing prices
 sentiment_analysis_results = {}  # Dictionary to store sentiment analysis results
 
 
-#===========get the trikker from frontend request
+## Add the logic for gpt to process frontend data and process to get trikker
 
 #Pass the extracted trikker to extract list of co-related stocks
 
@@ -56,3 +56,6 @@ for trikker in related_stocks:
         mongo_uri, db, collection_sentiment_db, trikker
     )
 print(sentiment_analysis_results)
+
+## Add the logic for gpt to process predicted_closing_rate && sentiment_analysis_results and
+## provide Buy or sell descison with reasoning
