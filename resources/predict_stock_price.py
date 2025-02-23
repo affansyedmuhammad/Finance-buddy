@@ -1,10 +1,9 @@
 import numpy as np
-import pandas as pd
 import yfinance as yf
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 
-MODEL_PATH = "lstm_model.h5"  # Change this to your actual model path
+MODEL_PATH = "./data/lstm_model.h5"  # Change this to your actual model path
 model = load_model(MODEL_PATH)
 
 def get_stock_data(tickers, days=60):

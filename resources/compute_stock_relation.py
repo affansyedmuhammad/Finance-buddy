@@ -1,8 +1,6 @@
 import pandas as pd
 import yfinance as yf
 import pymongo
-import json
-from datetime import datetime
 
 # Hardcoded NASDAQ-100 list (approx. late 2023)
 NASDAQ_100_TICKERS = [

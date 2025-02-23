@@ -1,8 +1,5 @@
-from polygon import RESTClient
 import pandas as pd
 from datetime import datetime, timedelta
-import time
-import json
 
 def fetch_sentiment_data(client, company_tickers, days=5):
     """
