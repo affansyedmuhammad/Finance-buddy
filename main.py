@@ -38,6 +38,12 @@ app = FastAPI()
 class StockRequest(BaseModel):
     user_input: str
 
+@app.get("/")
+def health_check():
+    """
+    FastAPI endpoint for health check.
+    """
+    return {"status": "Stock recommendation service is running."}
 
 @app.get("/stock_recommendation")
 def stock_recommendation(user_input: str):
@@ -74,7 +80,7 @@ def stock_recommendation(user_input: str):
         result = collection_corelation_db.find_one({"ticker": sample_ticker})
         if result:
             related_stocks = result["correlations"]
-        related_stocks.append(sample_ticker)
+        related_stocks.insert(0, sample_ticker)
         print("list of Ticker being considered = ",related_stocks)
         # Get predicted prices & sentiment analysis
         predicted_closing_rate = {}
@@ -101,7 +107,7 @@ def get_stock_recommendation(stock_name, predictions, sentiment_summary):
     prompt = (
         f"You are a stock trading assistant helping investors make decisions.\n"
         f"The user wants to make an investment decision for the stock '{stock_name}'.\n"
-        f"Here is the T+5 price prediction for {stock_name}: {predictions}.\n"
+        f"Here is are the price prediction for next 5 days for {stock_name}: {predictions}.\n"
         f"Here is a summary of recent sentiment analysis for {stock_name}:\n"
         f"'{sentiment_summary}'\n\n"
         f"Based on this prediction data and sentiment, provide a recommendation. I want you to build your response on the sentiment and sentiment_reasoning field to give a description which provides an answer based on historical data and why a certain descision is being made.\n"
